@@ -41,3 +41,38 @@ public class GameController {
         this.hangmanService   = hangmanService;
         this.statisticsWriter = statisticsWriter;
     }
+
+    // ------------------------------------------------------------------ //
+    //  Welcome page                                                         //
+    // ------------------------------------------------------------------ //
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    // ------------------------------------------------------------------ //
+    //  Start a new session                                                  //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * Initializes the session with a fresh {@link GameState} and picks the
+     * first secret word. Mirrors the filename-prompt and first
+     * {@code getRandomWord} call that opened {@code Hangman.run()}.
+     */
+    @PostMapping("/game/start")
+    public String startGame(@RequestParam("filename") String filename,
+                            HttpSession session) {
+        GameState state = new GameState();
+        state.setFilename(filename.trim());
+
+        String word = hangmanService.getRandomWord(state.getFilename());
+        state.setSecretWord(word);
+        state.setGuessesRemaining(HangmanService.MAX_GUESSES);
+        state.setMessage("A new word has been chosen. It has "
+                + word.length() + " letter(s). Good luck!");
+
+        session.setAttribute(SESSION_KEY, state);
+        return "redirect:/game/play";
+    }
+
