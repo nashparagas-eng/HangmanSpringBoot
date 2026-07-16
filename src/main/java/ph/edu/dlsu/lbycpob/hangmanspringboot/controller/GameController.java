@@ -92,4 +92,17 @@ public class GameController {
             return "redirect:/";
         }
 
+        String hint        = hangmanService.createHint(state.getSecretWord(), state.getGuessedLetters());
+        String displayHint = hangmanService.formatHintForDisplay(hint);
+        String art         = hangmanService.getHangmanArtAsString(state.getGuessesRemaining());
+
+        model.addAttribute("state",       state);
+        model.addAttribute("hint",        hint);
+        model.addAttribute("displayHint", displayHint);
+        model.addAttribute("hangmanArt",  art);
+        model.addAttribute("alphabet",    hangmanService.getAlphabet());
+        return "play";
+    }
+
+
 
