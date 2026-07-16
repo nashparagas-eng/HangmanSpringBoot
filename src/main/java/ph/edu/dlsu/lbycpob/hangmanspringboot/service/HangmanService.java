@@ -117,6 +117,29 @@ public class HangmanService {
         }
     }
 
+    /**
+     * Convenience wrapper: returns the art as a single newline-joined string
+     * suitable for {@code th:text} on a {@code <pre>} element.
+     */
+    public String getHangmanArtAsString(int guessesRemaining) {
+        return String.join("\n", getHangmanArt(guessesRemaining));
+    }
+
+    // ------------------------------------------------------------------ //
+    //  Keyboard helper                                                      //
+    // ------------------------------------------------------------------ //
+
+    /** Returns the 26 upper-case letters A–Z for the on-screen keyboard. */
+    public List<Character> getAlphabet() {
+        List<Character> alphabet = new ArrayList<>(26);
+        for (char c = 'A'; c <= 'Z'; c++) {
+            alphabet.add(c);
+        }
+        return alphabet;
+    }
+}
+
+
 
 
 
