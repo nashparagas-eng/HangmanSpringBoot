@@ -76,3 +76,20 @@ public class GameController {
         return "redirect:/game/play";
     }
 
+    // ------------------------------------------------------------------ //
+    //  Display the current game state                                       //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * Populates the model for the play template. No state is mutated here
+     * (GET should be idempotent); all mutation happens in the POST handlers.
+     */
+    @GetMapping("/game/play")
+    public String play(HttpSession session, Model model) {
+        GameState state = (GameState) session.getAttribute(SESSION_KEY);
+        if (state == null) {
+            // Session expired or player navigated here directly – send them home.
+            return "redirect:/";
+        }
+
+
