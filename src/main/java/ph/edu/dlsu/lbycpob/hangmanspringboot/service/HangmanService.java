@@ -61,5 +61,31 @@ public class HangmanService {
         }
     }
 
+    // ------------------------------------------------------------------ //
+    //  Hint building                                                        //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * Builds the player-visible hint string: revealed letters in their
+     * correct positions, {@code '-'} everywhere else.
+     *
+     * <p>Algorithm is identical to the original {@code Hangman.createHint}.
+     */
+    public String createHint(String secretWord, String guessedLetters) {
+        Objects.requireNonNull(secretWord,      "secretWord must not be null");
+        Objects.requireNonNull(guessedLetters,  "guessedLetters must not be null");
+
+        String upperWord    = secretWord.toUpperCase();
+        String upperGuessed = guessedLetters.toUpperCase();
+
+        StringBuilder hint = new StringBuilder(upperWord.length());
+        for (int i = 0; i < upperWord.length(); i++) {
+            char c = upperWord.charAt(i);
+            hint.append(upperGuessed.indexOf(c) >= 0 ? c : '-');
+        }
+        return hint.toString();
+    }
+
+
 
 
