@@ -150,6 +150,39 @@ public class GameController {
             // Correct guess
             String hint = hangmanService.createHint(
                     state.getSecretWord(), state.getGuessedLetters());
+            if (!hint.contains("-")) {
+                // All letters revealed – player wins
+                state.setGameOver(true);
+                state.setWon(true);
+                state.setStatistics(
+                        state.getStatistics().withGame(true, state.getGuessesRemaining()));
+                state.setMessage("You win! The word was \""
+                        + state.getSecretWord() + "\". "
+                        + state.getGuessesRemaining() + " guess(es) remaining.");
+            } else {
+                state.setMessage("Correct! \"" + letter + "\" is in the word.");
+            }
+        } else {
+            // Incorrect guess
+            state.setGuessesRemaining(state.getGuessesRemaining() - 1);
+
+            if (state.getGuessesRemaining() == 0) {
+                // No guesses left – player loses
+                state.setGameOver(true);
+                state.setWon(false);
+                state.setStatistics(state.getStatistics().withGame(false, 0));
+                state.setMessage("You lose. The word was \""
+                        + state.getSecretWord() + "\".");
+            } else {
+                state.setMessage("Incorrect! \"" + letter
+                        + "\" is not in the word. "
+                        + state.getGuessesRemaining() + " guess(es) left.");
+            }
+        }
+
+        session.setAttribute(SESSION_KEY, state);
+        return "redirect:/game/play";
+    }
 
 
 
