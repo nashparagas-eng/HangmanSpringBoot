@@ -100,6 +100,24 @@ public class HangmanService {
         return sb.toString();
     }
 
+    // ------------------------------------------------------------------ //
+    //  ASCII art                                                            //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * Returns the hangman art for {@code guessesRemaining} as a list of
+     * lines ready for the template to join with newlines.
+     */
+    public List<String> getHangmanArt(int guessesRemaining) {
+        try {
+            return renderer.render(guessesRemaining);
+        } catch (IOException e) {
+            log.error("Could not load hangman art for guessesRemaining={}", guessesRemaining, e);
+            return List.of("[art unavailable]");
+        }
+    }
+
+
 
 
 
