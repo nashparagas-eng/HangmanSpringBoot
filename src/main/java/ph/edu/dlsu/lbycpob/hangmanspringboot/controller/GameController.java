@@ -104,5 +104,36 @@ public class GameController {
         return "play";
     }
 
+    // ------------------------------------------------------------------ //
+    //  Process one letter guess                                             //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * The heart of the web migration: everything that used to happen inside
+     * the {@code while(true)} loop of {@code Hangman.playOneGame()} now
+     * happens in this single POST handler, then the player is redirected
+     * back to the GET so the browser's history contains a safe, refreshable
+     * URL.
+     */
+    @PostMapping("/game/guess")
+    public String guess(@RequestParam("letter") String letterInput,
+                        HttpSession session) {
+
+        GameState state = (GameState) session.getAttribute(SESSION_KEY);
+        if (state == null || state.isGameOver()) {
+            return "redirect:/game/play";
+        }
+
+        // --- Input validation (replaces Hangman.readGuess validation) ---
+        String cleaned = letterInput.trim().toUpperCase();
+        if (cleaned.length() != 1
+                || cleaned.charAt(0) < 'A'
+                || cleaned.charAt(0) > 'Z') {
+            state.setMessage("Please enter a single letter from A to Z.");
+            session.setAttribute(SESSION_KEY, state);
+            return "redirect:/game/play";
+        }
+
+
 
 
