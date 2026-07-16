@@ -27,3 +27,16 @@ public class HangmanService {
             "JAVA", "HANGMAN", "COMPUTER", "KEYBOARD", "PROGRAM", "ALGORITHM"
     };
 
+    private final WordRepository wordRepository;
+    private final HangmanRenderer renderer;
+    private final Random random;
+
+    public HangmanService(WordRepository wordRepository,
+                          HangmanRenderer renderer,
+                          Random random) {
+        this.wordRepository = Objects.requireNonNull(wordRepository);
+        this.renderer       = Objects.requireNonNull(renderer);
+        this.random         = Objects.requireNonNull(random);
+    }
+
+
