@@ -50,3 +50,20 @@ public class StatisticsWriter {
         }
     }
 
+    private String getCurrentTimestamp() {
+        return LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    private void ensureFileExists() throws IOException {
+        File file = new File(FILENAME);
+        if (!file.exists()) {
+            try (FileWriter fw = new FileWriter(FILENAME)) {
+                fw.write("HANGMAN GAME STATISTICS LOG\n");
+                fw.write("Session records appended below\n\n");
+            }
+        }
+    }
+}
+
+
