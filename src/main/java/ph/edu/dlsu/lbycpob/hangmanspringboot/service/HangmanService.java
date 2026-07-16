@@ -39,4 +39,27 @@ public class HangmanService {
         this.random         = Objects.requireNonNull(random);
     }
 
+    // ------------------------------------------------------------------ //
+    //  Word selection                                                       //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * Returns a random upper-cased word from {@code filename}, falling back
+     * to a built-in word list if the file cannot be read.
+     *
+     * <p>Mirrors {@code Hangman.getRandomWord} but logs the error instead
+     * of printing to stdout.
+     */
+    public String getRandomWord(String filename) {
+        Objects.requireNonNull(filename, "filename must not be null");
+        try {
+            return wordRepository.getRandomWord(filename);
+        } catch (IOException e) {
+            log.warn("Could not load words from \"{}\": {}. Using built-in fallback.",
+                    filename, e.getMessage());
+            return FALLBACK_WORDS[random.nextInt(FALLBACK_WORDS.length)];
+        }
+    }
+
+
 
