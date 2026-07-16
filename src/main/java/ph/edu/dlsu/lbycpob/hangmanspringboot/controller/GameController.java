@@ -184,6 +184,36 @@ public class GameController {
         return "redirect:/game/play";
     }
 
+    // ------------------------------------------------------------------ //
+    //  Play another round (mirrors the "Play again? Y/N" prompt)           //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * Resets game fields but preserves the accumulated {@link GameStatistics},
+     * exactly as {@code Hangman.run()}'s {@code while (playAgain)} loop did.
+     */
+    @PostMapping("/game/again")
+    public String playAgain(HttpSession session) {
+        GameState old = (GameState) session.getAttribute(SESSION_KEY);
+        if (old == null) {
+            return "redirect:/";
+        }
+
+        GameState fresh = new GameState();
+        fresh.setFilename(old.getFilename());
+        fresh.setStatistics(old.getStatistics());   // carry over running totals
+
+        String word = hangmanService.getRandomWord(old.getFilename());
+        fresh.setSecretWord(word);
+        fresh.setGuessesRemaining(HangmanService.MAX_GUESSES);
+        fresh.setMessage("New round! The word has "
+                + word.length() + " letter(s). Good luck!");
+
+        session.setAttribute(SESSION_KEY, fresh);
+        return "redirect:/game/play";
+    }
+
+
 
 
 
