@@ -86,6 +86,21 @@ public class HangmanService {
         return hint.toString();
     }
 
+    /**
+     * Formats a raw hint for large-text display by inserting a space
+     * between every character: {@code "COMP--"} → {@code "C O M P - -"}.
+     */
+    public String formatHintForDisplay(String hint) {
+        Objects.requireNonNull(hint, "hint must not be null");
+        StringBuilder sb = new StringBuilder(hint.length() * 2);
+        for (int i = 0; i < hint.length(); i++) {
+            if (i > 0) sb.append(' ');
+            sb.append(hint.charAt(i));
+        }
+        return sb.toString();
+    }
+
+
 
 
 
