@@ -30,3 +30,18 @@ public final class AsciiArtRenderer implements HangmanRenderer {
                 : resourceBasePath;
     }
 
+    @Override
+    public List<String> render(int guessesRemaining) throws IOException {
+        if (guessesRemaining < MIN_GUESSES_REMAINING
+                || guessesRemaining > MAX_GUESSES_REMAINING) {
+            throw new IllegalArgumentException(
+                    "guessesRemaining must be between " + MIN_GUESSES_REMAINING
+                            + " and " + MAX_GUESSES_REMAINING
+                            + ", got " + guessesRemaining);
+        }
+        String resourcePath = resourceBasePath + "/display" + guessesRemaining + ".txt";
+        return ClasspathResources.readLines(resourcePath);   // was: for-loop + IO.println
+    }
+}
+
+
