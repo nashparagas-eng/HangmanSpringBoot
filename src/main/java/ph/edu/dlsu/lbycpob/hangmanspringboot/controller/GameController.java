@@ -213,6 +213,37 @@ public class GameController {
         return "redirect:/game/play";
     }
 
+    // ------------------------------------------------------------------ //
+    //  View statistics and end session                                      //
+    // ------------------------------------------------------------------ //
+
+    /**
+     * Mirrors {@code Hangman.stats()} plus the call to
+     * {@code StatisticsWriter.writeStats()}. Session is invalidated after
+     * writing so the next visit to {@code /} starts clean.
+     */
+    @GetMapping("/game/stats")
+    public String stats(HttpSession session, Model model) {
+        GameState state = (GameState) session.getAttribute(SESSION_KEY);
+        if (state == null || state.getStatistics().gamesPlayed() == 0) {
+            return "redirect:/";
+        }
+
+        GameStatistics s = state.getStatistics();
+        model.addAttribute("stats", s);
+
+        statisticsWriter.writeStats(
+                s.gamesPlayed(),
+                s.gamesWon(),
+                s.gamesPlayed() - s.gamesWon(),
+                s.winPercentage(),
+                s.bestGuessesRemaining());
+
+        session.invalidate();
+        return "stats";
+    }
+
+
 
 
 
