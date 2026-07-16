@@ -11,5 +11,33 @@ import ph.edu.dlsu.lbycpob.hangman.service.HangmanService;
 import ph.edu.dlsu.lbycpob.hangman.statistics.GameStatistics;
 import ph.edu.dlsu.lbycpob.hangman.statistics.StatisticsWriter;
 
+/**
+ * HTTP controller – the web equivalent of the {@code Hangman.run()} game
+ * loop.
+ *
+ * <p><b>Request flow</b>
+ * <ol>
+ *   <li>{@code GET  /}           – welcome / word-list selection page</li>
+ *   <li>{@code POST /game/start} – initialise session; pick first secret word</li>
+ *   <li>{@code GET  /game/play}  – render current game state (art, hint, keyboard)</li>
+ *   <li>{@code POST /game/guess} – process one letter; PRG-redirect back to play</li>
+ *   <li>{@code POST /game/again} – keep statistics, start a fresh round</li>
+ *   <li>{@code GET  /game/stats} – display session statistics, write to file,
+ *                                  invalidate session</li>
+ *   <li>{@code GET  /game/reset} – abandon session, return to welcome page</li>
+ * </ol>
+ *
+ */
 
-public class GameController {}
+@Controller
+public class GameController {
+    private static final String SESSION_KEY = "gameState";
+
+    private final HangmanService    hangmanService;
+    private final StatisticsWriter  statisticsWriter;
+
+    public GameController(HangmanService hangmanService,
+                          StatisticsWriter statisticsWriter) {
+        this.hangmanService   = hangmanService;
+        this.statisticsWriter = statisticsWriter;
+    }
