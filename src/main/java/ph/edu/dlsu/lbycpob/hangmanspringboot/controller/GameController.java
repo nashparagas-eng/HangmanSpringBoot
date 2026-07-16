@@ -243,6 +243,18 @@ public class GameController {
         return "stats";
     }
 
+    // ------------------------------------------------------------------ //
+    //  Abandon session                                                      //
+    // ------------------------------------------------------------------ //
+
+    @GetMapping("/game/reset")
+    public String reset(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
+}
+
+
 
 
 
