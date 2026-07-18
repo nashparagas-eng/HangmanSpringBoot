@@ -14,4 +14,5 @@ import java.util.Random;
  * {@link AsciiArtRenderer} reads its art - rather than a file on the
  * user's real, separate filesystem.
  */
+public final class ClasspathWordRepository implements WordRepository {
 
