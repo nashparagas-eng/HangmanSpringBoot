@@ -38,4 +38,6 @@ public final class ClasspathResources {
             if (input == null) {
                 throw new IOException("Resource not found on the classpath: " + resourcePath);
             }
+            List<String> lines = new ArrayList<>();
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8))) {
 }
