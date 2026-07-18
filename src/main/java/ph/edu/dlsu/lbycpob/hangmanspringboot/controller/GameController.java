@@ -1,4 +1,4 @@
-package ph.edu.dlsu.lbycpob.hangman.controller;
+package ph.edu.dlsu.lbycpob.hangmanspringboot.controller;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -6,10 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ph.edu.dlsu.lbycpob.hangman.model.GameState;
-import ph.edu.dlsu.lbycpob.hangman.service.HangmanService;
-import ph.edu.dlsu.lbycpob.hangman.statistics.GameStatistics;
-import ph.edu.dlsu.lbycpob.hangman.statistics.StatisticsWriter;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.model.GameState;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.service.HangmanService;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.statistics.GameStatistics;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.statistics.StatisticsWriter;
 
 /**
  * HTTP controller – the web equivalent of the {@code Hangman.run()} game
