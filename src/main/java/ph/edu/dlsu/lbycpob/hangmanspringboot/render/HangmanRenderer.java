@@ -1,4 +1,5 @@
-package ph.edu.dlsu.lbycpob.hangmanspringboot.render;
+package ph.edu.dlsu.lbycpob.hangman.render;
 
-public interface HangmanRenderer {
-}
+import java.io.IOException;
+import java.util.List;
+
