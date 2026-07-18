@@ -1,4 +1,4 @@
-package ph.edu.dlsu.lbycpob.hangmanspringboot.utils;
+package ph.edu.dlsu.lbycpob.hangman.utils;
 
-public class ClassPathResources {
-}
+import ph.edu.dlsu.lbycpob.hangman.render.AsciiArtRenderer;
+import ph.edu.dlsu.lbycpob.hangman.repository.ClasspathWordRepository;
