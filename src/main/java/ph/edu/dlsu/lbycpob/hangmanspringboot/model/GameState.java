@@ -78,6 +78,15 @@ public class GameState implements Serializable {
         this.secretWord = secretWord;
     }
 
+    public String getGuessedLetters() {
+        return guessedLetters;
+    }
+
+    public void setGuessedLetters(String guessedLetters) {
+        this.guessedLetters = guessedLetters;
+    }
+
+
 
 
 
