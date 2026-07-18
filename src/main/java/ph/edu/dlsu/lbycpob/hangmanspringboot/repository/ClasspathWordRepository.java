@@ -15,4 +15,8 @@ import java.util.Random;
  * user's real, separate filesystem.
  */
 public final class ClasspathWordRepository implements WordRepository {
+    private final String resourceBasePath;
+    private final Random random;
+
+}
 
