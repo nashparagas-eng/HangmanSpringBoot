@@ -74,6 +74,10 @@ public class GameState implements Serializable {
         return secretWord;
     }
 
+    public void setSecretWord(String secretWord) {
+        this.secretWord = secretWord;
+    }
+
 
 
 
