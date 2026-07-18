@@ -18,3 +18,8 @@ import java.util.Objects;
  * sitting on the user's filesystem.
  */
 public final class ClasspathResources {
+
+    private ClasspathResources() {
+        // Utility class - never instantiated.
+    }
+}
