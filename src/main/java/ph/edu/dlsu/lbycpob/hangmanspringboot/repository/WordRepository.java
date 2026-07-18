@@ -1,4 +1,3 @@
-package ph.edu.dlsu.lbycpob.hangmanspringboot.repository;
-
-public interface WordRepository {
-}
+package ph.edu.dlsu.lbycpob.hangman.repository;
+import java.io.IOException;
+pasted imports
