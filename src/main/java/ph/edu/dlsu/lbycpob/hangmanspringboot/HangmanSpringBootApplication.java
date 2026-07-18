@@ -32,4 +32,7 @@ public class HangmanSpringBootApplication {
     }
 
 }
-}
+
+/*
+For small- to medium-sized Spring Boot applications, placing @Bean definitions in the main application class is a simple and practical approach because it keeps the application's startup configuration in one place. This makes it easy to see which shared objects (beans) the application needs without searching through multiple configuration classes. It is especially useful when objects require custom constructor parameters, such as file paths or other initialization values, that Spring cannot automatically determine.
+*/
