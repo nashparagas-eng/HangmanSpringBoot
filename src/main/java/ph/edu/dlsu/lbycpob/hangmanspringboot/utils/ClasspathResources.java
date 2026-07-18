@@ -49,4 +49,3 @@ public final class ClasspathResources {
         }
     }
 }
-
