@@ -22,4 +22,13 @@ public final class ClasspathResources {
     private ClasspathResources() {
         // Utility class - never instantiated.
     }
+
+    /**
+     * Reads every line of the classpath resource at {@code resourcePath}
+     * (e.g. {@code "/game-assets/words/test.txt"}).
+     *
+     * @throws IOException if the resource does not exist or cannot be read
+     */
+    public static List<String> readLines(String resourcePath) throws IOException {
+        Objects.requireNonNull(resourcePath, "resourcePath must not be null");
 }
