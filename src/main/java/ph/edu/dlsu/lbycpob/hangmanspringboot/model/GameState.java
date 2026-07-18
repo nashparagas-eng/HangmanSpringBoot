@@ -53,6 +53,12 @@ public class GameState implements Serializable {
      */
     private boolean gameOver = false;
 
+    /**
+     * {@code true} if the player guessed all letters before running out.
+     */
+    private boolean won = false;
+
+
 
 
 
