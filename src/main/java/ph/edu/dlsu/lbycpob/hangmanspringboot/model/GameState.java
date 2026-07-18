@@ -32,3 +32,10 @@ public class GameState implements Serializable {
      */
     private String guessedLetters = "";
 
+    /**
+     * How many incorrect guesses the player still has available.
+     */
+    private int guessesRemaining = 8;
+
+
+
