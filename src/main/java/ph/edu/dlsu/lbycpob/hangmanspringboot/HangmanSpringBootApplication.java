@@ -22,4 +22,8 @@ public class HangmanSpringBootApplication {
     public Random random() {
         return new Random();
     }
+    @Bean
+    public WordRepository wordRepository(Random random) {
+        return new ClasspathWordRepository(GAME_ASSETS_BASE_PATH + "/words", random);
+    }
 }
