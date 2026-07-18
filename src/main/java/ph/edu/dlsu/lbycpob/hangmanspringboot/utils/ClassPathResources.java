@@ -10,3 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+/**
+ * One small, focused job: read every line of a text file that is bundled
+ * inside the application as a classpath resource - i.e. packaged inside the
+ * jar and found with {@code getResourceAsStream}, as opposed to a real file
+ * sitting on the user's filesystem.
+ */
+public final class ClasspathResources {
