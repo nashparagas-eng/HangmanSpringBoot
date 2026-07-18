@@ -34,8 +34,16 @@ public final class ClasspathWordRepository implements WordRepository {
         this.resourceBasePath = resourceBasePath.endsWith("/")
                 ? resourceBasePath.substring(0, resourceBasePath.length() - 1)
                 : resourceBasePath;
-
-
-
     }
+
+    @Override
+    public String getRandomWord(String filename) throws IOException {
+        Objects.requireNonNull(filename, "filename must not be null");
+        if (filename.isBlank()) {
+            throw new IllegalArgumentException("filename must not be blank");
+
+
+
+
+        }
 
