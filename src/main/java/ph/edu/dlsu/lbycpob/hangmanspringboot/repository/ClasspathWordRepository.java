@@ -27,6 +27,14 @@ public final class ClasspathWordRepository implements WordRepository {
      */
     public ClasspathWordRepository(String resourceBasePath, Random random) {
         Objects.requireNonNull(resourceBasePath, "resourceBasePath must not be null");
+        this.random = Objects.requireNonNull(random, "random must not be null");
+        if (resourceBasePath.isBlank()) {
+            throw new IllegalArgumentException("resourceBasePath must not be blank");
+        }
+        this.resourceBasePath = resourceBasePath.endsWith("/")
+                ? resourceBasePath.substring(0, resourceBasePath.length() - 1)
+                : resourceBasePath;
+
 
 
     }
