@@ -51,6 +51,12 @@ public final class ClasspathWordRepository implements WordRepository {
                 words.add(line.toUpperCase());
             }
         }
+        if (words.isEmpty()) {
+            throw new IOException("Word list resource contains no words: " + resourcePath);
+        }
+        return words.get(random.nextInt(words.size()));
+    }
+}
 
 
 
