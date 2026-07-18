@@ -15,13 +15,20 @@ public class GameState implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-/**
- * The word list file currently in use (e.g. {@code "words.txt"}).
- */
+    /**
+    * The word list file currently in use (e.g. {@code "words.txt"}).
+    */
 
-private String filename = "";
+    private String filename = "";
 
-/**
- * Upper-cased secret word for the current round.
- */
-private String secretWord = "";
+    /**
+    * Upper-cased secret word for the current round.
+    */
+    private String secretWord = "";
+    /**
+     * Concatenated string of every letter the player has guessed so far,
+     * in the order they were guessed – mirrors the {@code guessedLetters}
+     * local variable from the original {@code playOneGame}.
+     */
+    private String guessedLetters = "";
+
