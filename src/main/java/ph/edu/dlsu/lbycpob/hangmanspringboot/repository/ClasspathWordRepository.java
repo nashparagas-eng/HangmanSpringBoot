@@ -41,9 +41,10 @@ public final class ClasspathWordRepository implements WordRepository {
         Objects.requireNonNull(filename, "filename must not be null");
         if (filename.isBlank()) {
             throw new IllegalArgumentException("filename must not be blank");
-
-
-
-
         }
+        String resourcePath = resourceBasePath + "/" + filename;
+        List<String> rawLines = ClasspathResources.readLines(resourcePath);
+
+
+
 
