@@ -44,6 +44,14 @@ public final class ClasspathWordRepository implements WordRepository {
         }
         String resourcePath = resourceBasePath + "/" + filename;
         List<String> rawLines = ClasspathResources.readLines(resourcePath);
+        List<String> words = new ArrayList<>();
+        for (String line : rawLines) {
+            line = line.trim();
+            if (!line.isEmpty()) {
+                words.add(line.toUpperCase());
+            }
+        }
+
 
 
 
