@@ -8,5 +8,18 @@ import java.util.Locale;
  * of any single game.
  */
 public record GameStatistics(int gamesPlayed, int gamesWon, int bestGuessesRemaining) {
+    public GameStatistics {
+        if (gamesPlayed < 0) {
+            throw new IllegalArgumentException("gamesPlayed must be >= 0, got " + gamesPlayed);
+        }
+        if (gamesWon < 0 || gamesWon > gamesPlayed) {
+            throw new IllegalArgumentException(
+                    "gamesWon must be between 0 and gamesPlayed (" + gamesPlayed + "), got " + gamesWon);
+        }
+        if (bestGuessesRemaining < 0) {
+            throw new IllegalArgumentException(
+                    "bestGuessesRemaining must be >= 0, got " + bestGuessesRemaining);
+        }
+    }
 
-/** Runs automatically every time a GameStatistics is created - checks the numbers make sense. */
+}
