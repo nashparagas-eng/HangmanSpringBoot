@@ -43,5 +43,16 @@ public class GameState implements Serializable {
      * game completion via {@link GameStatistics#withGame}.
      */
     private GameStatistics statistics = GameStatistics.empty();
+    /**
+     * The feedback message shown at the top of the play page.
+     */
+    private String message = "";
+
+    /**
+     * {@code true} once the round has been won or lost.
+     */
+    private boolean gameOver = false;
+
+
 
 
