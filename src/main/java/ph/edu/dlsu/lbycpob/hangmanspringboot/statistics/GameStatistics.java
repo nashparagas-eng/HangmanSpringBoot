@@ -1,4 +1,4 @@
-package ph.edu.dlsu.lbycpob.hangman.statistics;
+package ph.edu.dlsu.lbycpob.hangmanspringboot.statistics;
 
 import java.util.Locale;
 
