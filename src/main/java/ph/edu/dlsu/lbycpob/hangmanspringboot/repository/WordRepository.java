@@ -1,4 +1,4 @@
-package ph.edu.dlsu.lbycpob.hangman.repository;
+package ph.edu.dlsu.lbycpob.hangmanspringboot.repository;
 import java.io.IOException;
 /**
  * Something that can hand back a random secret word.
