@@ -58,6 +58,21 @@ public class GameState implements Serializable {
      */
     private boolean won = false;
 
+    // ------------------------------------------------------------------ //
+    //  Getters and setters                                                  //
+    // ------------------------------------------------------------------ //
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getSecretWord() {
+        return secretWord;
+    }
 
 
 
