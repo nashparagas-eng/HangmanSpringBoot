@@ -24,3 +24,4 @@ private String filename = "";
 /**
  * Upper-cased secret word for the current round.
  */
+private String secretWord = "";
