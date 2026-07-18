@@ -86,6 +86,15 @@ public class GameState implements Serializable {
         this.guessedLetters = guessedLetters;
     }
 
+    public int getGuessesRemaining() {
+        return guessesRemaining;
+    }
+
+    public void setGuessesRemaining(int guessesRemaining) {
+        this.guessesRemaining = guessesRemaining;
+    }
+
+
 
 
 
