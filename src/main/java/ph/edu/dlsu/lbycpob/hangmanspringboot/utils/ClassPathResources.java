@@ -45,6 +45,8 @@ public final class ClasspathResources {
                     lines.add(line);
                 }
             }
-
+            return lines;
         }
+    }
 }
+
