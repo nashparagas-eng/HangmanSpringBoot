@@ -1,5 +1,5 @@
-package ph.edu.dlsu.lbycpob.hangman.model;
-import ph.edu.dlsu.lbycpob.hangman.statistics.GameStatistics;
+package ph.edu.dlsu.lbycpob.hangmanspringboot.model;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.statistics.GameStatistics;
 import java.io.Serializable;
 
 /**
@@ -17,4 +17,10 @@ public class GameState implements Serializable {
 
 /**
  * The word list file currently in use (e.g. {@code "words.txt"}).
+ */
+
+private String filename = "";
+
+/**
+ * Upper-cased secret word for the current round.
  */
