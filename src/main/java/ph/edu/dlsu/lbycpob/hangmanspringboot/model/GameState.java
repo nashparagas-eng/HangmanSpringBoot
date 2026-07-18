@@ -37,5 +37,11 @@ public class GameState implements Serializable {
      */
     private int guessesRemaining = 8;
 
+    /**
+     * Accumulated statistics across all games in this browser session –
+     * the immutable {@link GameStatistics} record is replaced on each
+     * game completion via {@link GameStatistics#withGame}.
+     */
+    private GameStatistics statistics = GameStatistics.empty();
 
 
