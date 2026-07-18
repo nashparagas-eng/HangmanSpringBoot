@@ -31,4 +31,11 @@ public final class ClasspathResources {
      */
     public static List<String> readLines(String resourcePath) throws IOException {
         Objects.requireNonNull(resourcePath, "resourcePath must not be null");
+
+        // try-with-resources: both streams are closed automatically, even
+        // if readLine() throws partway through.
+        try (InputStream input = ClasspathResources.class.getResourceAsStream(resourcePath)) {
+            if (input == null) {
+                throw new IOException("Resource not found on the classpath: " + resourcePath);
+            }
 }
