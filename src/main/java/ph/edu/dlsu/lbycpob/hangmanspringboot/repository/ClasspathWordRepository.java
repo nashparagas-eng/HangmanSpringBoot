@@ -1,7 +1,7 @@
-package ph.edu.dlsu.lbycpob.hangman.repository;
+package ph.edu.dlsu.lbycpob.hangmanspringboot.repository;
 
-import ph.edu.dlsu.lbycpob.hangman.render.AsciiArtRenderer;
-import ph.edu.dlsu.lbycpob.hangman.utils.ClasspathResources;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.render.ASCIIArtRenderer;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.utils.ClasspathResources;
 import ph.edu.dlsu.lbycpob.hangmanspringboot.repository.WordRepository;
 
 import java.io.IOException;

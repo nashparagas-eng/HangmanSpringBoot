@@ -1,4 +1,4 @@
-package ph.edu.dlsu.lbycpob.hangman;
+package ph.edu.dlsu.lbycpob.hangmanspringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,7 +28,7 @@ public class HangmanSpringBootApplication {
     }
     @Bean
     public HangmanRenderer hangmanRenderer() {
-        return new AsciiArtRenderer(GAME_ASSETS_BASE_PATH + "/hangman-art");
+        return new ASCIIArtRenderer(GAME_ASSETS_BASE_PATH + "/hangman-art");
     }
 
 }

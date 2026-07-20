@@ -13,7 +13,7 @@ import java.util.Objects;
  * caller decide how to display them is the correct separation of concerns
  * for a server-side web component.
  */
-public final class ASCIIArtRenderer implements HangmanRenderer {
+public final class ASCIIArtRenderer implements ph.edu.dlsu.lbycpob.hangmanspringboot.render.HangmanRenderer {
     private static final int MIN_GUESSES_REMAINING = 0;
     private static final int MAX_GUESSES_REMAINING = 8;
 
@@ -39,7 +39,7 @@ public final class ASCIIArtRenderer implements HangmanRenderer {
                             + ", got " + guessesRemaining);
         }
         String resourcePath = resourceBasePath + "/display" + guessesRemaining + ".txt";
-        return ClasspathResources.readLines(resourcePath);   // was: for-loop + IO.println
+        return ph.edu.dlsu.lbycpob.hangmanspringboot.utils.ClasspathResources.readLines(resourcePath);   // was: for-loop + IO.println
     }
 }
 
