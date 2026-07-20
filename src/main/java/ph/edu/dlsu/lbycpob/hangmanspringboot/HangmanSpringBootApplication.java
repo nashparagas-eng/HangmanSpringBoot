@@ -3,10 +3,10 @@ package ph.edu.dlsu.lbycpob.hangmanspringboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import ph.edu.dlsu.lbycpob.hangman.render.AsciiArtRenderer;
-import ph.edu.dlsu.lbycpob.hangman.render.HangmanRenderer;
-import ph.edu.dlsu.lbycpob.hangman.repository.ClasspathWordRepository;
-import ph.edu.dlsu.lbycpob.hangman.repository.WordRepository;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.render.ASCIIArtRenderer;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.render.HangmanRenderer;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.repository.ClasspathWordRepository;
+import ph.edu.dlsu.lbycpob.hangmanspringboot.repository.WordRepository;
 
 import java.util.Random;
 
